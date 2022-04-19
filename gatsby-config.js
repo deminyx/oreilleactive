@@ -2,6 +2,7 @@ module.exports = {
     siteMetadata: {
         title: "Oreille Active",
         siteUrl: `https://www.yourdomain.tld`,
+        logoUrl: "../images/logo.png"
     },
     plugins: [
         {
