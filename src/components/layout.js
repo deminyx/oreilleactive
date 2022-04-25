@@ -1,18 +1,10 @@
 import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { CloseRounded, MenuRounded } from "@mui/icons-material";
+import { StaticImage } from 'gatsby-plugin-image'
 import {
   AppBar,
-  CssBaseline,
-  Divider,
-  Drawer,
-  IconButton,
-  List,
-  ListItemButton,
-  ListItemText,
-  ThemeProvider,
   Toolbar,
+  Button
 } from "@mui/material";
 import { Box } from "@mui/system";
 import {
@@ -35,7 +27,23 @@ const Layout = ({ pageTitle, children }) => {
     }
   `)
 
-  const styleToolbar = {  width: "100%", margin: "auto" }
+  // const logoPath = useStaticQuery(graphql`
+  //   query {
+  //     allFile(filter: {extension: {eq: "png"}, name: {eq: "logo"}}) {
+  //       edges {
+  //         node {
+  //           relativePath
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+
+
+  const pages = [{name: "Qui sommes-nous ?", uri:"/a-propos"},{name: "Actualités", uri:"/actualites"},{ name: "'Nous Contacter'", uri:"#"}];
+
+
+  const styleToolbar = { width: "100%", margin: "auto" }
 
 
 
@@ -43,41 +51,31 @@ const Layout = ({ pageTitle, children }) => {
     <div className={container}>
       <AppBar position="sticky">
         <Toolbar style={styleToolbar}>
-          <Box className="top-bar-left">
+          <Box sx={{ flexGrow: 1, display: 'block'}} >
             <Link to="/" target="_blank">
-              LOGO
-              <img
+              <StaticImage
                 className="logo-top-bar"
-                src={"../../images/logo.png"}
-                alt="Logo Devfest 2021"
+                src={"../../medias/images/commun/logo.png"}
+                alt={data.site.siteMetadata.title}
                 height="50"
-                width="150"
+                width="50"
               />
             </Link>
           </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {pages.map((page) => (
+              <Link to={page.uri} className={navLinkText}> 
+                <Button
+                  key={page.name}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page.name}
+                </Button>
+              </Link>
+            ))}
+          </Box>
         </Toolbar>
       </AppBar>
-      <title>{pageTitle} | {data.site.siteMetadata.title}</title>
-      <header>{data.site.siteMetadata.title}</header>
-      <nav>
-        <ul className={navLinks}>
-          <li className={navLinkItem}>
-            <Link to="/" className={navLinkText}>
-              Home
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link to="/actualites" className={navLinkText}>
-              Actualités
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link to="/a-propos" className={navLinkText}>
-              About
-            </Link>
-          </li>
-        </ul>
-      </nav>
       <main>
         <h1 className={heading}>{pageTitle}</h1>
         {children}
