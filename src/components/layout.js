@@ -40,7 +40,7 @@ const Layout = ({ pageTitle, children }) => {
   // `)
 
 
-  const pages = [{name: "Qui sommes-nous ?", uri:"/a-propos"},{name: "Actualités", uri:"/actualites"},{ name: "'Nous Contacter'", uri:"#"}];
+  const pages = [{name: "Qui sommes-nous ?", uri:"/a-propos"},{name: "Actualités", uri:"/actualites"},{ name: "Nous Contacter", uri:"/contact"}];
 
 
   const styleToolbar = { width: "100%", margin: "auto" }
