@@ -1,6 +1,6 @@
 @media (max-width: 726px) {
     .coverimg {
-        max-height: 35vh !important;
+        max-height: 30vh !important;
     }
 
     .heading {
@@ -13,7 +13,7 @@
 }
 
 body {
-    background: #6387ff;
+    background: #ffffff;
     font-family: Cabin;
     color: #fff;
 }
@@ -31,7 +31,7 @@ body {
 }
 
 .coverimg {
-    max-height: 45vh;
+    max-height: 30vh;
     width: auto;
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.4));
 }
@@ -39,12 +39,25 @@ body {
 .heading {
     font-size: 80px;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
-    margin-top: 25px;
+    margin-top: 15px;
     margin-bottom: 0;
+    color: #076d8e;
 }
 
 .description {
     font-size: 20px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
     margin-top: 15px;
+    color: #97cd7d;
+}
+
+.contact {
+    font-size: 20px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    margin-top: 15px;
+    color: #97cd7d;
+}
+
+.emphasis{
+    color: #076d8e;
 }
